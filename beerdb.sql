@@ -41,7 +41,7 @@ CREATE TABLE `beer` (
 
 LOCK TABLES `beer` WRITE;
 /*!40000 ALTER TABLE `beer` DISABLE KEYS */;
-INSERT INTO `beer` VALUES ('Budweiser Black Crown',0.5,'Amber Lager',3.2,3,6),('Budweiser Select 55',0.5,'Light Lager',2.4,3,2.4),('Heineken',0.33,'Pale Lager',1.9,4,5),('Heineken',0.5,'Pale Lager',2.3,4,5),('Karhu III',0.5,'Pale Lager',1.3,6,4.6),('Leffe Blonde',0.5,'Belgian Ale',3,3,6.6),('Snow Beer',0.33,'Pale Lager',1,5,4),('Tuborg Grøn (Green)',0.4,'Pilsner',1.93,6,4.6);
+INSERT INTO `beer` VALUES ('Budweiser Black Crown',0.5,'Amber Lager',3.2,3,6),('Budweiser Select 55',0.5,'Light Lager',2.4,3,2.4),('Heineken',0.33,'Pale Lager',1.9,4,5),('Heineken',0.5,'Pale Lager',2.3,4,5),('Karhu III',0.5,'Pale Lager',1.3,6,4.6),('Leffe Blonde',0.5,'Belgian Ale',3,3,6.6),('Perse',0.25,'Lager',5,7,40),('Perse',0.5,'Lager',5,7,40),('Perse',0.7,'Lager',5,7,40),('Snow Beer',0.33,'Pale Lager',1,5,4),('Tuborg Grøn (Green)',0.4,'Pilsner',1.93,6,4.6);
 /*!40000 ALTER TABLE `beer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -57,7 +57,7 @@ CREATE TABLE `customer` (
   `name` varchar(45) DEFAULT NULL,
   `address` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Abbey','Homestreet 15'),(2,'Georgie','Ulululu alley'),(3,'Chris','Kansas street 12'),(4,'Morgan','Aleksiskiventie 3'),(5,'Homer','Andalusia road 555'),(6,'Carlos','A la Playa 2'),(7,'Winston','Devils Den 666'),(8,'Monica','Street street 2'),(9,'Jarmo','Kaskirauniontie 16'),(10,'Jorma','Vaajakatu 5'),(11,'Sharon','Madison square 497');
+INSERT INTO `customer` VALUES (1,'Abbey','Homestreet 15'),(2,'Georgie','Ulululu alley'),(3,'Chris','Kansas street 12'),(4,'Morgan','Aleksiskiventie 3'),(5,'Homer','Andalusia road 555'),(6,'Carlos','A la Playa 2'),(7,'Winston','Devils Den 666'),(8,'Monica','Street street 2'),(9,'Jarmo','Kaskirauniontie 16'),(10,'Jorma','Vaajakatu 5'),(11,'Sharon','Madison square 497'),(12,'Kevin','123 Real Street'),(13,'Steve','Dude Street 42'),(14,'Kulli Karva','Tulliportinkatu 69'),(15,'Anu Saukko','Hervanta'),(16,'Mikey','Rainbow Road 123');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -117,7 +117,7 @@ CREATE TABLE `transaction` (
   CONSTRAINT `FK_transaction_beer` FOREIGN KEY (`beer_name`, `beer_size`) REFERENCES `beer` (`name`, `size`),
   CONSTRAINT `beer_id` FOREIGN KEY (`beer_name`) REFERENCES `beer` (`name`),
   CONSTRAINT `customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customer` (`customer_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,7 +126,7 @@ CREATE TABLE `transaction` (
 
 LOCK TABLES `transaction` WRITE;
 /*!40000 ALTER TABLE `transaction` DISABLE KEYS */;
-INSERT INTO `transaction` VALUES (1,'Heineken',0.5,12,'2014-09-08 17:51:04.777000',1),(2,'Heineken',0.5,24,'2014-09-11 17:52:04.777000',1),(3,'Heineken',0.33,24,'2014-02-08 12:51:04.777000',3),(4,'Budweiser Select 55',0.5,12,'2015-09-08 17:20:04.777000',7),(5,'Leffe Blonde',0.5,30,'2014-03-08 13:51:04.777000',2),(6,'Budweiser Black Crown',0.5,12,'2016-09-08 17:51:04.777000',8),(7,'Snow Beer',0.33,1,'2014-04-08 14:51:04.777000',4),(8,'Karhu III',0.5,14,'2017-09-08 17:51:04.777000',9),(9,'Snow Beer',0.33,12,'2014-05-08 15:51:31.777000',5),(11,'Heineken',0.5,10,'2015-10-10 05:05:05.000000',3),(15,'Heineken',0.5,10,'2015-10-10 05:05:05.000000',3);
+INSERT INTO `transaction` VALUES (1,'Heineken',0.5,12,'2014-09-08 17:51:04.777000',1),(2,'Heineken',0.5,24,'2014-09-11 17:52:04.777000',1),(3,'Heineken',0.33,24,'2014-02-08 12:51:04.777000',3),(4,'Budweiser Select 55',0.5,12,'2015-09-08 17:20:04.777000',7),(5,'Leffe Blonde',0.5,30,'2014-03-08 13:51:04.777000',2),(6,'Budweiser Black Crown',0.5,12,'2016-09-08 17:51:04.777000',8),(7,'Snow Beer',0.33,1,'2014-04-08 14:51:04.777000',4),(8,'Karhu III',0.5,14,'2017-09-08 17:51:04.777000',9),(9,'Snow Beer',0.33,12,'2014-05-08 15:51:31.777000',5),(17,'Heineken',0.5,3,'2018-06-09 12:35:45.000000',3),(20,'Karhu III',0.5,4,'2018-06-09 12:40:55.000000',5),(22,'Heineken',0.5,4,'2018-06-09 13:09:31.000000',5),(24,'Snow Beer',0.33,4,'2018-06-10 08:33:47.000000',2),(25,'Budweiser Black Crown',0.5,7,'2018-06-10 08:34:18.000000',2),(26,'Heineken',0.33,15,'2018-06-10 11:28:09.000000',4),(29,'Karhu III',0.5,1,'2018-06-10 12:58:39.000000',2),(31,'Heineken',0.5,0,'2018-06-10 12:59:44.000000',1),(32,'Heineken',0.33,10,'2018-06-10 13:31:09.000000',3);
 /*!40000 ALTER TABLE `transaction` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -139,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-09 14:29:53
+-- Dump completed on 2018-06-10 16:14:31
